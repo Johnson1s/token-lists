@@ -1,0 +1,1 @@
+pytest --cov --junitxml=junit.xml -o junit_family=legacy
