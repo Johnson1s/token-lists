@@ -130,3 +130,17 @@ This is the preferred way of referencing your list.
 You can find a simple example of a token list in [test/schema/example.tokenlist.json](test/schema/example.tokenlist.json).
 
 A snapshot of the Uniswap default list encoded as a token list is found in [test/schema/bigexample.tokenlist.json](test/schema/bigexample.tokenlist.json).
+
+## Release Workflow
+
+The `release.yml` workflow automates the release process of the project. It ensures a consistent and secure release process by automating the necessary steps.
+
+### Steps involved in the workflow:
+
+1. **Trigger**: The workflow is triggered manually via the `workflow_dispatch` event.
+2. **Runner**: It runs on a specific runner group named `npm-deploy`.
+3. **Load Secrets**: It loads secrets using the `1password/load-secrets-action` to access the `NPM_TOKEN`.
+4. **Checkout Code**: It checks out the repository code using `actions/checkout`.
+5. **Setup Node.js**: It sets up the Node.js environment using `actions/setup-node`.
+6. **Install Dependencies**: It installs dependencies using `yarn install`.
+7. **Release Command**: It runs the release command `yarn g:release` to publish the package.
